@@ -14,10 +14,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup .NET 10 Preview
-      uses: actions/setup-dotnet@v10
+    - name: Setup .NET 9
+      uses: actions/setup-dotnet@v9
       with:
-        dotnet-version: '10.0.100-preview.2'
+        dotnet-version: '9.0.2'
 
     - name: Restore dependencies
       run: dotnet restore
