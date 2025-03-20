@@ -26,3 +26,37 @@ public string Message
 }
 ```
 
+See in detail the sample code provided:
+
+```csharp
+Console.WriteLine("--- 1. Field Keyword ---\n");
+var sensor = new Sensor();
+sensor.Temperature = 50.0;
+Console.WriteLine($"Sensor Temperature: {sensor.Temperature}°C");
+
+try
+{
+    sensor.Temperature = -500; // Invalid, triggers validation
+}
+catch (ArgumentOutOfRangeException ex)
+{
+    Console.WriteLine($"Validation Error: {ex.Message}");
+}
+
+Console.WriteLine();
+```
+
+And also we have to define the ##Sensor class
+
+```csharp
+public class Sensor
+{
+    public double Temperature
+    {
+        get;
+        set => field = (value < -273.15)
+            ? throw new ArgumentOutOfRangeException(nameof(value), "Temperature cannot be below absolute zero.")
+            : value;
+    }
+}
+```
