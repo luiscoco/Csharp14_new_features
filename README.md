@@ -188,3 +188,53 @@ int total = sumSpan(numbers);
 Console.WriteLine($"Sum of Span: {total}"); // Output: Sum of Span: 10
 Console.WriteLine();
 ```
+
+## 5. Partial Constructor and Events
+
+A partial member has one **declaring declaration** and often one **implementing declaration**.
+
+The **declaring declaration** doesn't include a body.
+
+The **implementing declaration** provides the body of the member.
+
+See this sample:
+
+```csharp
+var employee = new Employee("Ada", "Lovelace");
+Console.WriteLine($"Employee created with name: {employee.FullName}");
+```
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CsharpVersion14Samples
+{
+    public partial class Employee
+    {
+        // Defining declaration of the partial constructor
+        public partial Employee(string firstName, string lastName);
+
+        public string FullName { get; private set; }
+    }
+
+    public partial class Employee
+    {
+        // Implementing declaration of the partial constructor
+        public partial Employee(string firstName, string lastName) : this() // Constructor initializer goes here
+        {
+            FullName = $"{firstName} {lastName}";
+            Console.WriteLine($"Employee partial constructor invoked: {FullName}");
+        }
+
+        // Base parameterless constructor
+        public Employee()
+        {
+            Console.WriteLine("Employee base constructor invoked.");
+        }
+    }
+}
+```
