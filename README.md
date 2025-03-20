@@ -98,7 +98,30 @@ Console.WriteLine();
 
 Beginning with C# 14, the argument to nameof can be an unbound generic type.
 
-For example, 'nameof(List<>)' evaluates to List. 
+For example, **nameof(List<>)** evaluates to List. 
 
-In earlier versions of C#, only closed generic types, such as 'List<int>', could be used to return the List name.
+In earlier versions of C#, only closed generic types, such as **List<int>**, could be used to return the List name.
 
+```csharp
+Console.WriteLine("--- 3. nameof with Unbound Generic Types ---\n");
+Console.WriteLine($"Unbound generic type name: {nameof(System.Collections.Generic.Dictionary<,>)}");
+Console.WriteLine();
+Console.WriteLine($"Unbound generic type name: {nameof(List<>)}");
+Console.WriteLine();
+```
+
+## 4. Simple lambda parameters with modifiers
+
+You can add parameter modifiers, such as **scoped**, **ref**, **in**, **out**, or **ref readonly** to lambda expression parameters without specifying the parameter type.
+
+**Legacy code**:
+
+```csharp
+TryParse<int> parse2 = (string text, out int result) => Int32.TryParse(text, out result);
+```
+
+**New C# 14 code**:
+
+```csharp
+TryParse<int> parse1 = (text, out result) => Int32.TryParse(text, out result);
+```
