@@ -1,4 +1,4 @@
-# Csharp Version 14 New Features
+# Csharp Version 14 New Features (.NET 10 and Visual Studio 2022 version 17.14)
 
 For more information visit this site:
 
