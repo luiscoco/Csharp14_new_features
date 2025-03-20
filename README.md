@@ -61,3 +61,35 @@ public class Sensor
     }
 }
 ```
+
+## 2. Implicit Span Conversions
+
+C# 14 introduces first-class support for **System.Span<T>** and **System.ReadOnlySpan<T>** in the language. 
+
+See this sample:
+
+```csharp
+Console.WriteLine("--- 2. Implicit Span Conversions ---\n");
+byte[] buffer = { 10, 20, 30, 40 };
+ImplicitSpanConversions.ProcessSpan(buffer);
+Console.WriteLine();
+```
+
+```csharp
+ public class ImplicitSpanConversions
+ {
+     public static void ProcessSpan(Span<byte> data)
+     {
+         Console.WriteLine("Processing Array Data:");
+         foreach (var b in data)
+             Console.WriteLine(b);
+     }
+
+     public static void ProcessSpan(ReadOnlySpan<byte> data)
+     {
+         Console.WriteLine("Processing Span Data:");
+         foreach (var b in data)
+             Console.WriteLine(b);
+     }
+ }
+```
