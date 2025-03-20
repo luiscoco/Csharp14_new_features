@@ -125,3 +125,66 @@ TryParse<int> parse2 = (string text, out int result) => Int32.TryParse(text, out
 ```csharp
 TryParse<int> parse1 = (text, out result) => Int32.TryParse(text, out result);
 ```
+
+### 4.1. Using 'ref' with Lambda Parameters
+
+```csharp
+Console.WriteLine("--- 4.1. Lambda with 'ref' parameter ---");
+Console.WriteLine("--- Sample1 ---");
+var multiply = (ref int x, ref int y) => x * y;
+int a = 5, b = 3;
+Console.WriteLine($"Multiply using ref lambda: {multiply(ref a, ref b)}");
+Console.WriteLine();
+Console.WriteLine("--- Sample2 ---");
+var increment = (ref int number) => number++;
+int value = 10;
+increment(ref value);
+Console.WriteLine($"Incremented Value: {value}"); // Output: 11
+Console.WriteLine();
+```
+### 4.2. Lambda with 'out' parameter
+
+```csharp
+Console.WriteLine("--- 4.2. Lambda with 'out' parameter ---");
+var initialize = (out int number) => number = 42;
+initialize(out int initializedValue);
+Console.WriteLine($"Initialized Value: {initializedValue}"); // Output: 42
+Console.WriteLine();
+```
+
+### 4.3. Lambda with 'in' parameter (read-only)
+
+```csharp
+Console.WriteLine("---  4.3. Lambda with 'in' parameter (read-only) ---");
+var printReadOnly = (in double num) => Console.WriteLine($"Read-only value: {num}");
+double readOnlyValue = 100.5;
+printReadOnly(in readOnlyValue); // Output: Read-only value: 100.5
+Console.WriteLine();
+```
+
+### 4.4. Lambda with 'ref readonly' parameter
+
+```csharp
+Console.WriteLine("---  4.4. Lambda with 'ref readonly' parameter ---");
+var showValue = (ref readonly int num) => Console.WriteLine($"Readonly Ref Value: {num}");
+int readOnlyRefValue = 20;
+showValue(ref readOnlyRefValue); // Output: Readonly Ref Value: 20
+Console.WriteLine();
+```
+
+### 4.5. Lambda with 'scoped' modifier
+
+```csharp
+Console.WriteLine("--- 4.5. Lambda with 'scoped' modifier ---");
+Span<int> numbers = stackalloc int[] { 1, 2, 3, 4 };
+var sumSpan = (scoped Span<int> span) =>
+{
+    int sum = 0;
+    foreach (var num in span)
+        sum += num;
+    return sum;
+};
+int total = sumSpan(numbers);
+Console.WriteLine($"Sum of Span: {total}"); // Output: Sum of Span: 10
+Console.WriteLine();
+```
