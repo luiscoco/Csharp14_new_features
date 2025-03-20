@@ -17,7 +17,7 @@ jobs:
     - name: Setup .NET 10 Preview
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '10.0.100-preview.2.24157.4'
+        dotnet-version: 'X.Y.Z-preview.N'
 
     - name: Restore dependencies
       run: dotnet restore
