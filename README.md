@@ -46,7 +46,7 @@ catch (ArgumentOutOfRangeException ex)
 Console.WriteLine();
 ```
 
-And also we have to define the #Sensor class
+And also we have to define the **Sensor** class
 
 ```csharp
 public class Sensor
