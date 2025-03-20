@@ -7,21 +7,22 @@ The token 'field' is replaced with a compiler synthesized backing field.
 
 Legacy code:
 
-´´´csharp
+```csharp
 private string _msg;
 public string Message
 {
   get => _msg;
   set => _msg = value ?? throw new ArgumentNullException(nameof(value));
 }
-´´´
+```
 
-New code:
+New C# v14 code:
 
-´´´csharp
+```csharp
 public string Message
 {
   get;
   set => field = value ?? throw new ArgumentNullException(nameof(value));
 }
-´´´
+```
+
