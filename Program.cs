@@ -130,8 +130,8 @@ Console.WriteLine();
 //The implementing declaration provides the body of the member.
 //
 //----------------------------------------------------------------------------------------------------
-var employee = new Employee("Ada", "Lovelace");
-Console.WriteLine($"Employee created with name: {employee.FullName}");
+//var employee = new Employee("Ada", "Lovelace");
+//Console.WriteLine($"Employee created with name: {employee.FullName}");
 //----------------------------------------------------------------------------------------------------
 
 
