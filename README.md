@@ -3,6 +3,7 @@
 ## 1. The 'field' keyword
 
 The token 'field' enables you to write a property accessor body without declaring an explicit backing field.
+
 The token 'field' is replaced with a compiler synthesized backing field.
 
 Legacy code:
@@ -26,7 +27,7 @@ public string Message
 }
 ```
 
-See in detail the sample code provided:
+Now see another more complex sample about this new feature in C# 14:
 
 ```csharp
 Console.WriteLine("--- 1. Field Keyword ---\n");
