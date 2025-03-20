@@ -1,12 +1,12 @@
-# Csharp Version14 New Features
+# Csharp Version 14 New Features
 
 ## 1. The 'field' keyword
 
-The token 'field' enables you to write a property accessor body without declaring an explicit backing field.
+The token **field** enables you to write a property accessor body without declaring an explicit backing field.
 
-The token 'field' is replaced with a compiler synthesized backing field.
+The token **field** is replaced with a compiler synthesized backing field.
 
-Legacy code:
+**Legacy code**:
 
 ```csharp
 private string _msg;
@@ -17,7 +17,7 @@ public string Message
 }
 ```
 
-New C# v14 code:
+**New C# v14 code**:
 
 ```csharp
 public string Message
